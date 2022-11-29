@@ -27,11 +27,9 @@
     <button id="btnMinus" disabled=true class="bg-info text-base-100 text-2xl rounded-full h-7 w-7 disabled:opacity-50" on:click={handleClickMinus}>-</button>
         {active_particles}
     <button id="btnPlus" class="bg-info text-base-100 text-2xl rounded-full h-7 w-7 disabled:opacity-50"  on:click={handleClickPlus}>+</button>
-    <div>
+    <div class="my-10">
         <Boxes active_particles={active_particles} />
-    </div>
-     
+    </div>  
       
     
 </div>
-
