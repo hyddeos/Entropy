@@ -19,17 +19,20 @@
 	}
 
 </script>
-<div>
-    <h1 class="lowercase text-indigo-500">Welcome to SvelteKit</h1>
-    <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the docdwadaumentation</p>
-    <p>ACTIVE particles: {active_particles}</p>
+<div class="flex flex-row justify-center">
+    <div class="basis-4/4 text-center">
+        <h1 class="center text-indigo-500">Welcome to Entropy Control</h1>
 
-    <button id="btnMinus" disabled=true class="bg-info text-base-100 text-2xl rounded-full h-7 w-7 disabled:opacity-50" on:click={handleClickMinus}>-</button>
-        {active_particles}
-    <button id="btnPlus" class="bg-info text-base-100 text-2xl rounded-full h-7 w-7 disabled:opacity-50"  on:click={handleClickPlus}>+</button>
+        <p>ACTIVE particles: {active_particles}</p>
+    
+        <button id="btnMinus" disabled=true class="bg-info text-base-100 text-2xl rounded-full h-7 w-7 disabled:opacity-50" on:click={handleClickMinus}>-</button>
+            {active_particles}
+        <button id="btnPlus" class="bg-info text-base-100 text-2xl rounded-full h-7 w-7 disabled:opacity-50"  on:click={handleClickPlus}>+</button>  
+    </div>
+
+</div>
+<div>
     <div class="my-10">
         <Boxes active_particles={active_particles} />
-    </div>  
-      
-    
+    </div> 
 </div>

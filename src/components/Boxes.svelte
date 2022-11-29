@@ -25,11 +25,11 @@
             let side = randomBox(1, 3);
             if (side === 1){
                 boxLeft.push(particles[active_particles-1]);
-                boxLeft = boxLeft
+                boxLeft = boxLeft;
             }
             else {
                 boxRight.push(particles[active_particles-1]);
-                boxRight = boxRight
+                boxRight = boxRight;
             };
         }
         // If there is an decrease(-) in particles
@@ -37,29 +37,30 @@
             // Get the last Particel in each box
             let lastParticleLeft = boxLeft[boxLeft.length - 1]
             let lastParticleRight = boxRight[boxRight.length - 1]
-            // 
+            // If not any particles left, skip.
             if (!lastParticleLeft) {
-                console.log("No more Left")
                 boxRight.pop();
+                boxLeft = boxLeft;                
             }
             else if (!lastParticleRight) {
-                console.log("No more Right")
                 boxLeft.pop();
+                boxLeft = boxLeft;
             }
+            // Compare which side has the highest numberded last particle and remove that one. 
             else {
-                if ( boxLeft[boxLeft.length - 1][0].id > boxRight[boxRight.length - 1][0].id ) {
-                    console.log("Left is bigger")
+                if ( boxLeft[boxLeft.length - 1][0].id > boxRight[boxRight.length - 1][0].id ) { 
                     boxLeft.pop();
+                    boxLeft = boxLeft;
                 }
                 else {
-                    console.log("Right is bigger")
                     boxRight.pop();
+                    boxLeft = boxLeft;
                 }
             }
-
         }
+        // Update tempCounter for next irriation
         tempCounter = active_particles;
-        }
+    }
 
 
     // For desideing into what box particles will go
@@ -71,9 +72,15 @@
     
 </script>
 
-<p>Currently {active_particles}</p>
-<p>Random</p>
+<p>Currently Active Particles: {active_particles}</p>
 
-<div class="my-10">
-        LEFT BOX:<Box particles={boxLeft}/>   RIGHT BOX:<Box particles={boxRight} />    
+
+<div class="my-10 flex">
+    <div class="w-full p-5">
+        LEFT BOX:<Box particles={boxLeft}/>
+    </div>
+    <div class="w-full p-5">
+        RIGHT BOX:<Box particles={boxRight} /> 
+    </div>
+              
 </div>
