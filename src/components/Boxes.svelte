@@ -14,17 +14,41 @@
         { id: 9, name: "p9", color: '#8CE666' },
         { id: 10, name: "p10", color: '#8CE666' },
 	];
-        
+
     let boxLeft = [];
     let boxRight = [];
+ 
+    $: liveParticles = particles.slice(0,active_particles)
+    $: {
+        console.log("$ Runs")
+        liveParticles.forEach((particle, index) => {
+            let side = randomBox(1, 3);
+            if (side === 1){
+                boxLeft.push(particle);
+                console.log("$ Push 1 LEFT", boxLeft)
+            }
+            else {
+                boxRight.push(particle);
+                console.log("$ Push 2 RIGHT", boxRight)
+            }
+        });
+    }
+    
+    const updateArray = () => {
+        boxLeft.push(boxLeft[boxLeft.length - 1] + 1);
+        boxLeft = boxLeft;
+    };
 
     function randomBox(min, max) {
         min = Math.ceil(min);
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
-    }
+    };
+    
 
+/*
     function handleClickRandom() {
+        console.log("Runs ClickRandom")
         // Slice Particels depening on current active particels
         let liveParticles = particles.slice(0,active_particles)
         // Clear out boxes before random-process
@@ -39,15 +63,23 @@
             else {
                 boxRight.push(particle);
             }
-        });
-        console.log("boxes", boxLeft, boxRight)
+        });        
+        console.log("boxes", boxLeft, boxRight)        
     }
-    
 
+    <button class="bg-info text-base-100 text-xl h-7 w-35" on:click={handleClickRandom}>Random</button>
+    */   
 </script>
+
 <p>Currently {active_particles}</p>
 <p>Random</p>
-<button class="bg-info text-base-100 text-xl h-7 w-35" on:click={handleClickRandom}>Random</button>
+
 <div>
-    <Box particles={boxLeft}/><Box particels={boxRight} />
+    {liveParticles}, boxL {boxLeft}, boxRight {boxRight}
+    <p></p>
+    {console.log("boxes: Left", boxLeft, "Right",  boxRight)}
+    <p>
+        LEFT BOX:<Box particles={boxLeft}/>   RIGHT BOX:<Box particles={boxRight} />
+    </p>
+    
 </div>
