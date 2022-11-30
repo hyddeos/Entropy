@@ -72,15 +72,17 @@
     
 </script>
 
-<p>Currently Active Particles: {active_particles}</p>
-
-
-<div class="my-2 flex">
-    <div class="w-full p-5">
-        LEFT BOX:<Box particles={boxLeft}/>
+<div class="my-2 flex justify-center items-center">
+    <div class="py-3">        
+        <Box particles={boxLeft}/>
+        <h3 class="text-center text-l font-semibold text-base-300">LEFT BOX</h3>
     </div>
-    <div class="w-full p-5">
-        RIGHT BOX:<Box particles={boxRight} /> 
+    <div class="bg-base-400 w-10 h-60 static">
+        <div class="w-1 h-60 border-l-2 border-dashed border-neutral/50 absolute ml-5"></div> 
+    </div>
+    <div class="py-3">        
+        <Box particles={boxRight} /> 
+        <h3 class="text-center text-l font-semibold text-base-300">RIGHT BOX</h3>
     </div>
               
 </div>
