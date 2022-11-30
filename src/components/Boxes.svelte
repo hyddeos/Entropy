@@ -5,14 +5,14 @@
     let particles = [
 		[{ id: 1, name: "p1", color: '#F15BB5' }],
 		[{ id: 2, name: "p2", color: '#9B5DE5' }],
-		[{ id: 3, name: "p3", color: '#FEE440' }],
+		[{ id: 3, name: "p3", color: '#FF4733' }],
 		[{ id: 4, name: "p4", color: '#00BBF9' }],
 		[{ id: 5, name: "p5", color: '#00F5D4' }],
-        [{ id: 6, name: "p6", color: '#00F5D4' }],
+        [{ id: 6, name: "p6", color: '#3B5BE9' }],
         [{ id: 7, name: "p7", color: '#F55757' }],
         [{ id: 8, name: "p8", color: '#8CE666' }],
-        [{ id: 9, name: "p9", color: '#8CE666' }],
-        [{ id: 10, name: "p10", color: '#8CE666' }],
+        [{ id: 9, name: "p9", color: '#F0E100' }],
+        [{ id: 10, name: "p10", color: '#B1B7D1' }],
 	];
 
     let boxLeft = [];
@@ -75,7 +75,7 @@
 <p>Currently Active Particles: {active_particles}</p>
 
 
-<div class="my-10 flex">
+<div class="my-2 flex">
     <div class="w-full p-5">
         LEFT BOX:<Box particles={boxLeft}/>
     </div>
