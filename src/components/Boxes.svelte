@@ -2,6 +2,8 @@
     import Box from "../components/Box.svelte";
     export let active_particles;
 
+    let simulationStatus = true; 
+
     let particles = [
 		[{ id: 1, name: "p1", color: '#F15BB5' }],
 		[{ id: 2, name: "p2", color: '#9B5DE5' }],
@@ -20,7 +22,8 @@
     let tempCounter = active_particles
     
     $: {
-          // If there is an increase(+) in particles 
+
+        // If there is an increase(+) in particles 
         if ( tempCounter <= active_particles ) {         
             let side = randomBox(1, 3);
             if (side === 1){
@@ -62,27 +65,85 @@
         tempCounter = active_particles;
     }
 
-
     // For desideing into what box particles will go
     function randomBox(min, max) {
         min = Math.ceil(min);
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min) + min); 
     };
+
+    function stopSimulation() {
+        simulationStatus = false;
+    }
+
+    /*
+    function handleClickRandom() {
+        console.log("LEFT",boxLeft.length, boxLeft,);
+        console.log("RIGHT",boxLeft.length, boxLeft,);
+        for (let i = 0; i < boxLeft.length; i++) {            
+            let side = randomBox(1, 3);
+            console.log("loop i:", i, "side:", side)
+            if (side === 1){
+                boxRight.push(particles[i]);
+                console.log("Left after", boxLeft)
+                console.log("pusing", particles[i])
+            }
+        }
+        console.log("LEFT AFTER",boxLeft.length, boxLeft,);
+        console.log("RIGHT AFTER",boxLeft.length, boxLeft,);  
+        boxLeft = boxLeft;
+        boxRight = boxRight;
+    }
+    */
+
+    /*
+    function handleClickRandom() {
+        // Resets the current boxes, Dont delete nr 1
+        // Left box
+        for (let i = 0; i < boxLeft.length; i++) {
+            if (boxLeft[i][0].id !== 1) {
+                delete boxLeft[i];   
+            }
+        }
+        // Right box
+        for (let i = 0; i < boxRight.length; i++) {
+            if (boxRight[i][0].id !== 1) {
+                delete boxRight[i];   
+            }
+        }
+        // Re-distribute the particles throug random
+        for (let particle = 1; particle < active_particles; particle++) {
+            console.log("current i:", particle);
+            let side = randomBox(1, 3);
+            if (side === 1){
+                boxLeft.push(particles[particle-1]);
+                console.log("L push", particles[particle-1])
+                boxLeft = boxLeft;
+            }
+            else {
+                boxRight.push(particles[particle-1]);
+                console.log("R push", particles[particle-1])
+                boxRight = boxRight;
+            };
+        }
+	}
+    */
     
 </script>
 
+<div class="flex justify-center items-center ">
+    <button id="btnMaxi" class="bg-primary text-base-400 text-xl h-8 w-24 rounded-lg" on:click={stopSimulation}>Random</button>
+</div>
 <div class="my-2 flex justify-center items-center">
     <div class="py-3">        
-        <Box particles={boxLeft}/>
+        {#if simulationStatus}<Box particles={boxLeft} status={simulationStatus}/>{:else}<Box status={simulationStatus}/>{/if}
         <h3 class="text-center text-l font-semibold text-base-300">LEFT BOX</h3>
     </div>
     <div class="bg-base-400 w-10 h-60 static">
         <div class="w-1 h-60 border-l-2 border-dashed border-neutral/50 absolute ml-5"></div> 
     </div>
-    <div class="py-3">        
-        <Box particles={boxRight} /> 
+    <div class="py-3">
+        {#if simulationStatus}<Box particles={boxRight} status={simulationStatus}/>{:else}<Box status={simulationStatus}/>{/if}
         <h3 class="text-center text-l font-semibold text-base-300">RIGHT BOX</h3>
     </div>
-              
 </div>
