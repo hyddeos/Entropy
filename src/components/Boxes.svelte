@@ -2,8 +2,6 @@
     import Box from "../components/Box.svelte";
     export let active_particles;
 
-    let simulationStatus = true; 
-
     let particles = [
 		[{ id: 1, name: "p1", color: '#F15BB5' }],
 		[{ id: 2, name: "p2", color: '#9B5DE5' }],
@@ -20,9 +18,11 @@
     let boxLeft = [];
     let boxRight = [];
     let tempCounter = active_particles
+
+    let simulationStatus = true; 
     
     $: {
-
+        // USING THE PARTICLE COUNTER
         // If there is an increase(+) in particles 
         if ( tempCounter <= active_particles ) {         
             let side = randomBox(1, 3);
@@ -73,61 +73,46 @@
     };
 
     function stopSimulation() {
+        // Stop the simulation and reset varibles.
         simulationStatus = false;
-    }
-
-    /*
-    function handleClickRandom() {
-        console.log("LEFT",boxLeft.length, boxLeft,);
-        console.log("RIGHT",boxLeft.length, boxLeft,);
-        for (let i = 0; i < boxLeft.length; i++) {            
+        tempCounter = active_particles;
+        active_particles = 0;
+        boxLeft = [];
+        boxRight = [];
+        // Start re-randomize the particles
+        for (let p = 0; p < tempCounter; p++) {            
             let side = randomBox(1, 3);
-            console.log("loop i:", i, "side:", side)
             if (side === 1){
-                boxRight.push(particles[i]);
-                console.log("Left after", boxLeft)
-                console.log("pusing", particles[i])
-            }
-        }
-        console.log("LEFT AFTER",boxLeft.length, boxLeft,);
-        console.log("RIGHT AFTER",boxLeft.length, boxLeft,);  
+                boxLeft.push(particles[p]);
+                // If the last particle is here, delete it to avoid duplets
+                if (p+1 === tempCounter){
+                    boxLeft.pop();
+                    }
+                }
+            else {
+                boxRight.push(particles[p]);
+                // If the last particle is here, delete it to avoid duplets
+                if (p+1 === tempCounter){
+                    boxRight.pop();
+                    }
+                }
+        };
+        // Update and the varibles and start the simulation again
         boxLeft = boxLeft;
         boxRight = boxRight;
+        active_particles = tempCounter;
+        startSimulation();
     }
-    */
 
-    /*
-    function handleClickRandom() {
-        // Resets the current boxes, Dont delete nr 1
-        // Left box
-        for (let i = 0; i < boxLeft.length; i++) {
-            if (boxLeft[i][0].id !== 1) {
-                delete boxLeft[i];   
-            }
-        }
-        // Right box
-        for (let i = 0; i < boxRight.length; i++) {
-            if (boxRight[i][0].id !== 1) {
-                delete boxRight[i];   
-            }
-        }
-        // Re-distribute the particles throug random
-        for (let particle = 1; particle < active_particles; particle++) {
-            console.log("current i:", particle);
-            let side = randomBox(1, 3);
-            if (side === 1){
-                boxLeft.push(particles[particle-1]);
-                console.log("L push", particles[particle-1])
-                boxLeft = boxLeft;
-            }
-            else {
-                boxRight.push(particles[particle-1]);
-                console.log("R push", particles[particle-1])
-                boxRight = boxRight;
-            };
-        }
-	}
-    */
+    // Make a delay before starting to make sure the particles gets randomly placed again
+    function delay(time) {
+        return new Promise(resolve => setTimeout(resolve, time));
+    }
+    async function startSimulation() {
+        await delay(1);
+        simulationStatus = true;
+    }
+
     
 </script>
 
