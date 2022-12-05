@@ -1,5 +1,4 @@
 <script>
-    export const prerender = true;
     import "../styles/tailwind-output.css";    
 </script>
   <!-- Try some classes here -->
