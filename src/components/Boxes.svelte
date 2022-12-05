@@ -20,20 +20,28 @@
     let tempCounter = active_particles
 
     let simulationStatus = true; 
+    let minimized = false;
     
     $: {
         // USING THE PARTICLE COUNTER
         // If there is an increase(+) in particles 
-        if ( tempCounter <= active_particles ) {         
-            let side = randomBox(1, 3);
-            if (side === 1){
+        if ( tempCounter <= active_particles ) {
+            if (minimized) {
                 boxLeft.push(particles[active_particles-1]);
                 boxLeft = boxLeft;
             }
             else {
-                boxRight.push(particles[active_particles-1]);
-                boxRight = boxRight;
-            };
+                let side = randomBox(1, 3);
+                if (side === 1){
+                    boxLeft.push(particles[active_particles-1]);
+                    boxLeft = boxLeft;
+                }
+                else {
+                    boxRight.push(particles[active_particles-1]);
+                    boxRight = boxRight;
+                };
+            }   
+
         }
         // If there is an decrease(-) in particles
         else {
@@ -72,7 +80,7 @@
         return Math.floor(Math.random() * (max - min) + min); 
     };
 
-    function stopSimulation() {
+    function reRandom() {
         // Stop the simulation and reset varibles.
         simulationStatus = false;
         tempCounter = active_particles;
@@ -101,7 +109,40 @@
         boxLeft = boxLeft;
         boxRight = boxRight;
         active_particles = tempCounter;
+        enableMinimize();
         startSimulation();
+    }
+
+    function minimizeEntropy() {
+        // Stop the simulation and reset varibles.
+        simulationStatus = false;
+        tempCounter = active_particles;
+        active_particles = 0;
+        boxLeft = [];
+        boxRight = [];
+        // Place all particles to the left-box(Min Entropy)
+        for (let p = 0; p < tempCounter; p++) {
+            boxLeft.push(particles[p]);
+            // If the last particle is here, delete it to avoid duplets// If the last particle is here, delete it to avoid duplets
+            if (p+1 === tempCounter){
+                    boxLeft.pop();
+                }
+        }
+        // Update and the varibles and start the simulation again
+        boxLeft = boxLeft;
+        active_particles = tempCounter;
+        minimized = true;
+        disableMinimize();
+        startSimulation();
+    }
+
+
+    // Toggle the Minimize btn
+    function enableMinimize(){
+        document.getElementById("btnMiniEntropy").disabled = false;
+    }
+    function disableMinimize(){
+        document.getElementById("btnMiniEntropy").disabled = true;
     }
 
     // Make a delay before starting to make sure the particles gets randomly placed again
@@ -115,9 +156,12 @@
 
     
 </script>
-
-<div class="flex justify-center items-center ">
-    <button id="btnMaxi" class="bg-primary text-base-400 text-xl h-8 w-24 rounded-lg" on:click={stopSimulation}>Random</button>
+<div class="basis-4/4 text-center my-1">
+    <strong><p class="my-2">Entropy Mode</p></strong>
+</div>
+<div class="flex justify-center items-center bg-base-400 w-56 p-2 rounded-lg m-auto">    
+    <button id="btnMiniEntropy" class="bg-info mx-2 text-base-400 text-xl h-8 w-32 rounded-lg disabled:opacity-50 hover:brightness-125" on:click={minimizeEntropy}>Minimize</button>
+    <button id="btnRandom" class="bg-primary mx-2 text-base-400 text-xl h-8 w-32 rounded-lg hover:brightness-125" on:click={reRandom}>Random</button>
 </div>
 <div class="my-2 flex justify-center items-center">
     <div class="py-3">        
