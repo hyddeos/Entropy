@@ -163,16 +163,16 @@
     <button id="btnMiniEntropy" class="bg-info mx-2 text-base-400 text-xl h-8 w-32 rounded-lg disabled:opacity-50 hover:brightness-125" on:click={minimizeEntropy}>Minimize</button>
     <button id="btnRandom" class="bg-primary mx-2 text-base-400 text-xl h-8 w-32 rounded-lg hover:brightness-125" on:click={reRandom}>Random</button>
 </div>
-<div class="my-2 flex justify-center items-center">
-    <div class="py-3">        
+<div class="my-5 lg:flex lg:flex:wrap justify-center items-center">
+    <div class="lg:py-3 max-lg:my-0 max-lg:flex justify-center">        
         {#if simulationStatus}<Box particles={boxLeft} status={simulationStatus}/>{:else}<Box status={simulationStatus}/>{/if}
-        <h3 class="text-center text-l font-semibold text-base-300">LEFT BOX</h3>
+        <h3 class="text-center text-l font-semibold text-base-300 max-lg:hidden">LEFT BOX</h3>
     </div>
-    <div class="bg-base-400 w-10 h-60 static">
-        <div class="w-1 h-60 border-l-2 border-dashed border-neutral/50 absolute ml-5"></div> 
+    <div class="bg-base-400 lg:w-10 lg:h-60 max-lg:w-52 max-lg:h-5 max-lg:m-auto static ">
+        <div class="lg:w-1 lg:h-60 lg:border-l-2 lg:ml-5 border-dashed border-neutral/50 absolute "></div> 
     </div>
-    <div class="py-3">
+    <div class="lg:py-3 max-lg:my-0 max-lg:flex justify-center">
         {#if simulationStatus}<Box particles={boxRight} status={simulationStatus}/>{:else}<Box status={simulationStatus}/>{/if}
-        <h3 class="text-center text-l font-semibold text-base-300">RIGHT BOX</h3>
+        <h3 class="text-center text-l font-semibold text-base-300 max-lg:hidden">RIGHT BOX</h3>
     </div>
 </div>

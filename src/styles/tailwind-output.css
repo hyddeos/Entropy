@@ -508,6 +508,10 @@ video {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+.my-5 {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
 .ml-5 {
   margin-left: 1.25rem;
 }
@@ -525,6 +529,9 @@ video {
 }
 .h-60 {
   height: 15rem;
+}
+.h-20 {
+  height: 5rem;
 }
 .min-h-full {
   min-height: 100%;
@@ -552,6 +559,15 @@ video {
 }
 .w-12 {
   width: 3rem;
+}
+.w-0 {
+  width: 0px;
+}
+.w-60 {
+  width: 15rem;
+}
+.place-content-center {
+  place-content: center;
 }
 .items-center {
   align-items: center;
@@ -654,4 +670,162 @@ video {
 }
 .disabled\:opacity-50:disabled {
   opacity: 0.5;
+}
+@media not all and (min-width: 1024px) {
+
+  .max-lg\:m-auto {
+    margin: auto;
+  }
+
+  .max-lg\:my-0 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  .max-lg\:mt-5 {
+    margin-top: 1.25rem;
+  }
+
+  .max-lg\:mt-1 {
+    margin-top: 0.25rem;
+  }
+
+  .max-lg\:block {
+    display: block;
+  }
+
+  .max-lg\:inline {
+    display: inline;
+  }
+
+  .max-lg\:flex {
+    display: flex;
+  }
+
+  .max-lg\:hidden {
+    display: none;
+  }
+
+  .max-lg\:h-60 {
+    height: 15rem;
+  }
+
+  .max-lg\:h-20 {
+    height: 5rem;
+  }
+
+  .max-lg\:h-5 {
+    height: 1.25rem;
+  }
+
+  .max-lg\:w-10 {
+    width: 2.5rem;
+  }
+
+  .max-lg\:w-20 {
+    width: 5rem;
+  }
+
+  .max-lg\:w-24 {
+    width: 6rem;
+  }
+
+  .max-lg\:w-28 {
+    width: 7rem;
+  }
+
+  .max-lg\:w-32 {
+    width: 8rem;
+  }
+
+  .max-lg\:w-48 {
+    width: 12rem;
+  }
+
+  .max-lg\:w-52 {
+    width: 13rem;
+  }
+
+  .max-lg\:w-1 {
+    width: 0.25rem;
+  }
+
+  .max-lg\:flex-nowrap {
+    flex-wrap: nowrap;
+  }
+
+  .max-lg\:border-l-2 {
+    border-left-width: 2px;
+  }
+
+  .max-lg\:border-t-2 {
+    border-top-width: 2px;
+  }
+}
+@media not all and (min-width: 768px) {
+
+  .max-md\:flex {
+    display: flex;
+  }
+
+  .max-md\:hidden {
+    display: none;
+  }
+}
+@media (min-width: 768px) {
+
+  .md\:flex {
+    display: flex;
+  }
+}
+@media (min-width: 1024px) {
+
+  .lg\:ml-5 {
+    margin-left: 1.25rem;
+  }
+
+  .lg\:mt-5 {
+    margin-top: 1.25rem;
+  }
+
+  .lg\:mb-5 {
+    margin-bottom: 1.25rem;
+  }
+
+  .lg\:flex {
+    display: flex;
+  }
+
+  .lg\:h-60 {
+    height: 15rem;
+  }
+
+  .lg\:w-40 {
+    width: 10rem;
+  }
+
+  .lg\:w-20 {
+    width: 5rem;
+  }
+
+  .lg\:w-10 {
+    width: 2.5rem;
+  }
+
+  .lg\:w-1 {
+    width: 0.25rem;
+  }
+
+  .lg\:border-l-2 {
+    border-left-width: 2px;
+  }
+
+  .lg\:border-t-2 {
+    border-top-width: 2px;
+  }
+
+  .lg\:py-3 {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
 }
