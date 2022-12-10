@@ -1,6 +1,5 @@
 <script>
     import Boxes from "../components/Boxes.svelte";  
-    import Calculations from "../components/Calculations.svelte";
 
     // Number of particles 
     let active_particles = 1;
@@ -43,6 +42,5 @@
 <div>
     <div class="my-4">
         <Boxes active_particles={active_particles} />
-        <Calculations active_particles={active_particles} />
     </div> 
 </div>

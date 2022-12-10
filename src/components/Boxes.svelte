@@ -1,5 +1,6 @@
 <script>
     import Box from "../components/Box.svelte";
+    import Calculations from "../components/Calculations.svelte";
     export let active_particles;
 
     let particles = [
@@ -175,4 +176,7 @@
         {#if simulationStatus}<Box particles={boxRight} status={simulationStatus}/>{:else}<Box status={simulationStatus}/>{/if}
         <h3 class="text-center text-l font-semibold text-base-300 max-lg:hidden">RIGHT BOX</h3>
     </div>
+</div>
+<div>
+    <Calculations active_particles={active_particles} boxLeft={boxLeft} boxRight={boxRight} />
 </div>
