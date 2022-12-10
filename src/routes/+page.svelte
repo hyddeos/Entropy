@@ -1,5 +1,5 @@
 <script>
-    import Boxes from "../components/Boxes.svelte";  
+    import Boxes from "../components/Boxes.svelte";
 
     // Number of particles 
     let active_particles = 1;

@@ -492,9 +492,9 @@ video {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
 }
-.my-5 {
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
+.my-3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 .my-8 {
   margin-top: 2rem;
@@ -635,6 +635,12 @@ video {
 .text-base-100 {
   --tw-text-opacity: 1;
   color: rgb(243 244 246 / var(--tw-text-opacity));
+}
+.underline {
+  text-decoration-line: underline;
+}
+.decoration-success {
+  text-decoration-color: #5CE0B8;
 }
 .hover\:brightness-125:hover {
   --tw-brightness: brightness(1.25);

@@ -1,6 +1,7 @@
 <script>
     import Box from "../components/Box.svelte";
     import Calculations from "../components/Calculations.svelte";
+    import Math from "../../Math.svelte";
     export let active_particles;
 
     let particles = [
@@ -164,7 +165,11 @@
     <button id="btnMiniEntropy" class="bg-info mx-2 text-base-400 text-xl h-8 w-32 rounded-lg disabled:opacity-50 hover:brightness-125" on:click={minimizeEntropy}>Minimize</button>
     <button id="btnRandom" class="bg-primary mx-2 text-base-400 text-xl h-8 w-32 rounded-lg hover:brightness-125" on:click={reRandom}>Random</button>
 </div>
-<div class="my-5 lg:flex lg:flex:wrap justify-center items-center">
+<div class="my-3">
+    <Calculations active_particles={active_particles} boxLeft={boxLeft} boxRight={boxRight} />
+</div>
+
+<div class="my-3 lg:flex lg:flex:wrap justify-center items-center">
     <div class="lg:py-3 max-lg:my-0 max-lg:flex justify-center">        
         {#if simulationStatus}<Box particles={boxLeft} status={simulationStatus}/>{:else}<Box status={simulationStatus}/>{/if}
         <h3 class="text-center text-l font-semibold text-base-300 max-lg:hidden">LEFT BOX</h3>
@@ -177,6 +182,4 @@
         <h3 class="text-center text-l font-semibold text-base-300 max-lg:hidden">RIGHT BOX</h3>
     </div>
 </div>
-<div>
-    <Calculations active_particles={active_particles} boxLeft={boxLeft} boxRight={boxRight} />
-</div>
+

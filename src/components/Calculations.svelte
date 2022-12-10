@@ -2,7 +2,6 @@
 	import { current_component, element } from "svelte/internal";
     export let active_particles;
     export let boxLeft;
-    export let boxRight;
 
     let currentEntropy = 0;
 
@@ -27,8 +26,6 @@
 </script>
 
 <div class="text-center">
-    Calc Tot: {active_particles}
-
-   <p>Current: { currentEntropy } nr of diffent combinations is possible for this state</p> 
-
+   <h4 class="my-1 text-xl"><strong class="bold underline decoration-success">{ currentEntropy }</strong> possible {#if currentEntropy === 1} configuration{:else} configurations{/if}*</h4>
+   <p class="my-1" > </p>
 </div>
