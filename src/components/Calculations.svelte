@@ -14,5 +14,6 @@
 
 <div class="text-center">
     Calc Tot: {active_particles}, Left: {boxLeft.length}, Right {boxRight.length}
-    Current: 
+    Current: X nr of diffent combinations is possible for this state
+    Maximum: 1 possible combiantion is possible for this state
 </div>
