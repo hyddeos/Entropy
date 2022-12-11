@@ -1,7 +1,11 @@
 # Entropy, An Interactive Visualization. 
 This SvelteKit app aimed to make the fantastic concept of entropy more understandable by making the user in control of an simple entropy-system.
 
-## Using SvelteKit and Tailwind
+## Made with SvelteKit and Tailwind
+
+![localhost_5173_ (3)](https://user-images.githubusercontent.com/39992041/206902042-e78a495b-cc08-4d10-b725-630ba03466d4.png)
+
+
 
 # create-svelte
 
