@@ -6,10 +6,8 @@
 	// Gets a random for particle placement
 	function randomNumber() {
 		return Math.floor(Math.random() * (88 - 0) + 1);
-	};
-	
+	};	
 </script>
-
 
 <div class="bg-base-400 w-96 h-96 relative rounded-lg">
 	{#if status}
@@ -21,6 +19,3 @@
 		{/each}
 	{/if}
 </div>
-
-
-
