@@ -1,5 +1,7 @@
 # Entropy, An Interactive Visualization. 
-This SvelteKit app aimed to make the fantastic concept of entropy more understandable by making the user in control of an simple entropy-system
+This SvelteKit app aimed to make the fantastic concept of entropy more understandable by making the user in control of an simple entropy-system.
+
+## Using SvelteKit and Tailwind
 
 # create-svelte
 
