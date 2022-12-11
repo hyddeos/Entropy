@@ -1,6 +1,7 @@
 <script>
     import Boxes from "../components/Boxes.svelte";
     import Info from "../components/Info.svelte";
+    import Footer from "../components/Footer.svelte";
 
     // Number of particles 
     let active_particles = 1;
@@ -20,7 +21,7 @@
 	}
 
 </script>
-<div>
+<div class="p-5">
     <div class="basis-4/4 text-center my-8">
         <h2 class="text-2xl center -my-2">Welcome to</h2>
         <h1 class="text-4xl text-primary font-bold center text-indigo-500">Entropy Control</h1>
@@ -40,9 +41,10 @@
     </div>
 
 </div>
-<div>
+<div class="p-5">
     <div class="my-4">
         <Boxes active_particles={active_particles} />
         <Info />
     </div> 
 </div>
+<Footer />
