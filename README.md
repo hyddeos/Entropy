@@ -1,3 +1,6 @@
+# Entropy, An Interactive Visualization. 
+This SvelteKit app aimed to make the fantastic concept of entropy more understandable by making the user in control of an simple entropy-system
+
 # create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
